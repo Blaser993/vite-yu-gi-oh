@@ -1,8 +1,28 @@
 <template>
-  <h1>ciao</h1>
+  <Header></Header>
+  <Main></Main>
+  <Footer></Footer>
 </template>
 
 <script>
+
+import Header from "/src/components/Header.vue";
+import Main from "/src/components/Main.vue";
+import Footer from "/src/components/Footer.vue";
+
+export default{
+  components: {
+    Header,
+    Main,
+    Footer
+  },
+
+  data(){
+    return{
+      monsters:[]
+    } 
+  }
+}
 
 </script>
   
