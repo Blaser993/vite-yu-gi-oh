@@ -17,11 +17,7 @@ export default{
     Footer
   },
 
-  data(){
-    return{
-      monsters:[]
-    } 
-  }
+
 }
 
 </script>
