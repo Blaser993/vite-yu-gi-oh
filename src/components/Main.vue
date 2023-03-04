@@ -1,19 +1,23 @@
 <template>
     <h1>MAin</h1>
 
-    <ul v-for="monster in monsters" :key="monster.id">
+    <div class="container">
 
-        <figure v-for="image in monster.card_images" :key="image.id">
-            <img :src="image.url_image" alt="pic">
-        </figure>
-        
-        
-        <h2>{{monster.name}}</h2>
-    </ul>
+      <ul class="cards" >
+        <li class="monster card" v-for="monster in monsters" :key="monster.id">
+          
+          <img :src="monster.card_images[0].image_url" alt="pic">
+                
+          <h2>{{monster.name}}</h2>
+        </li>
+      </ul>
+    </div>
+
 </template>
   
   <script>
   import axios from "axios";
+  
 
   export default{
     data(){
@@ -46,5 +50,17 @@
   
   <style lang="scss" scoped>
   
-  
+    .monster{
+      border: red solid 2px;
+      text-align: center;
+      img{
+        max-height: 600px;
+      }
+    }
+
+    .cards{
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: repeat(3,1fr);
+    }
   </style>
