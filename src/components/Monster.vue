@@ -1,9 +1,11 @@
 <template>
-        <li class="monster card">
+        <li >
           
           <img :src="monster.card_images[0].image_url" alt="pic">
                 
-          <h2>{{monster.name}}</h2>
+          <h2 class="nome">{{monster.name}}</h2>
+
+          <span class="archetipo">{{monster.archetype}}</span>
         </li>
 </template>
   
