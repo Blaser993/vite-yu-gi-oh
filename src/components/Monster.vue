@@ -7,7 +7,7 @@
         </li>
 </template>
   
-  <script>
+<script>
   export default{
     props:{
       monster: {
@@ -17,7 +17,7 @@
     },
   }
   
-  </script>
+</script>
     
   
   

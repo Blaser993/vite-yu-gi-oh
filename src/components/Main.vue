@@ -3,28 +3,33 @@
 
     <div class="container">
 
-      <ul class="cards" >
+      <!-- <ul class="cards" >
         <li class="monster card" v-for="monster in monsters" :key="monster.id">
           
           <img :src="monster.card_images[0].image_url" alt="pic">
                 
           <h2>{{monster.name}}</h2>
         </li>
-      </ul>
-    </div>
+      </ul> -->
 
+      <Monster class="monster card" v-for="element in monsters" :key="monsters.id" :monster="element"></Monster>
+    </div>
+    
 </template>
   
   <script>
   import axios from "axios";
-  
+  import Monster from "./Monster.vue";
 
   export default{
+    components:{
+      Monster,
+    },
     data(){
-    return{
-      monsters:[""],
-      card_images:[""]
-    }    
+      return{
+        monsters:[""],
+        
+      }   
   },
     methods: {
         fetchMonsters(){
