@@ -35,7 +35,9 @@
   },
     methods: {
         fetchMonsters(){
-            console.log("fetching monsters")
+          const ricerca = this.store.ricerca
+            console.log("fetching monsters", ricerca)
+
             axios
               .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0")
               .then((res) => {
