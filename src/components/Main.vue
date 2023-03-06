@@ -2,7 +2,7 @@
 
   <div class="filtri">
     <!-- <input @keyup.enter="onEnter" class="cerca" type="text" placeholder="Filtra una carta per nome..." v-model="store.ricerca"> -->
-    <Ricerca></Ricerca>
+    <Ricerca @onSearch="onSearchFn"></Ricerca>
     {{store.ricerca}}
   </div>
 
@@ -44,6 +44,9 @@
                   console.log(this.store.monsters)
               })
         },
+        onSearchFn(){
+          console.log("on search event")
+        }
 
     },
     created(){
