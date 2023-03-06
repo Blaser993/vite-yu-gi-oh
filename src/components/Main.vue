@@ -1,11 +1,12 @@
 <template>
 
+  <div class="filtri">
+    <input @keyup.enter="onClick" class="cerca" type="text" placeholder="Filtra una carta per nome..." v-model="store.ricerca">
+    
+  </div>
 
     <div class="container">
-
-
       <ul class="cards">
-
         <Monster class="monster card" v-for="element in store.monsters" :key="monsters.id" :monster="element"></Monster>
       </ul>
     </div>
@@ -16,27 +17,36 @@
   import axios from "axios";
   import store from "../store";
   import Monster from "./Monster.vue";
+  import Ricerca from "./Ricerca.vue";
 
   export default{
     components:{
       Monster,
+      Ricerca,
     },
     data(){
       return{
+        
         monsters:[""],
-        store
+        store,
+        
       }   
   },
     methods: {
         fetchMonsters(){
             console.log("fetching monsters")
             axios
-              .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+              .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0")
               .then((res) => {
                   
                   this.store.monsters = res.data.data
                   console.log(this.store.monsters)
               })
+        },
+        onClick(){
+          
+          
+          console.log("ho cercato", this.store.ricerca, "poi" ,this.ricerca)
         }
     },
     created(){
@@ -50,17 +60,29 @@
   
   <style lang="scss" scoped>
   
-    .monster{
-      border: red solid 2px;
-      text-align: center;
-      img{
-        max-height: 600px;
-      }
-    }
+
 
     .cards{
+      padding: 3rem;
       display: grid;
-      gap: 3rem;
+      gap: .75rem;
       grid-template-columns: repeat(4,1fr);
+    }
+
+    .filtri{
+      position: sticky ;
+      top: 0;
+      padding: 1rem;
+      background-color: rgba($color: #fafafa, $alpha: .1);
+    }
+
+    .cerca{
+      line-height: 36px;
+      padding: 0.5rem 1rem;
+      font-size: 22px;
+      margin: 0 3rem;
+      margin-top: .5rem;
+      margin-bottom: 0.5rem;
+      border-radius: 12px;
     }
   </style>
