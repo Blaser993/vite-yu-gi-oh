@@ -1,8 +1,9 @@
 <template>
 
   <div class="filtri">
-    <input @keyup.enter="onClick" class="cerca" type="text" placeholder="Filtra una carta per nome..." v-model="store.ricerca">
-    
+    <!-- <input @keyup.enter="onEnter" class="cerca" type="text" placeholder="Filtra una carta per nome..." v-model="store.ricerca"> -->
+    <Ricerca></Ricerca>
+    {{store.ricerca}}
   </div>
 
     <div class="container">
@@ -43,11 +44,7 @@
                   console.log(this.store.monsters)
               })
         },
-        onClick(){
-          
-          
-          console.log("ho cercato", this.store.ricerca, "poi" ,this.ricerca)
-        }
+
     },
     created(){
         this.fetchMonsters()
