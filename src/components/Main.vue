@@ -39,7 +39,15 @@
             console.log("fetching monsters", ricerca)
 
             axios
-              .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=0")
+              // .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?offset=0&num=20&fname="+ricerca)
+              .get("https://db.ygoprodeck.com/api/v7/cardinfo.php",{
+                params:{
+                  num: 20,
+                  offset: 0,
+                  fname: ricerca
+                }
+              })
+
               .then((res) => {
                   
                   this.store.monsters = res.data.data
@@ -48,6 +56,7 @@
         },
         onSearchFn(){
           console.log("on search event")
+          this.fetchMonsters()
         }
 
     },
