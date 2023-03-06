@@ -1,5 +1,5 @@
 <template>
-    <input @keyup.enter="$emit("onSearch")" class="cerca" type="text" placeholder="Filtra una carta per nome..." v-model="store.ricerca">
+    <input @keyup.enter="$emit(onSearch)" class="cerca" type="text" placeholder="Filtra una carta per nome..." v-model="store.ricerca">
 </template>
   
 <script>
